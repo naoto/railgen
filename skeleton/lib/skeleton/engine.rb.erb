@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
+module <%= @options[:namespace] %>
+  class Engine < Rails::Engine
+    initializer "<%= Rinne.to_snake(@options[:namespace]) %>.routes" do
+      <%= @options[:namespace]::Rails::Routes.install!
+    end
+  end
+end
+

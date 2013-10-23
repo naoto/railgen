@@ -1,0 +1,17 @@
+require 'rails/generators/active_record'
+
+class <%= @options[:namespace] %>::InstallGenerator < ::Rails::Generators::Base
+  include Rails::Generators::Migration
+  source_root File.expand_path('../templates', __FILE__)
+  desc "Install <%= @options[:namespace] %>"
+
+  def install
+    route "use_<%= Rinne.to_snake(@options[:namespace]) %>"
+    migration_template 'migration.rb', 'db/migrate/create_<%= Rinne.to_snake(@options[:namespace]) %>_tables.rb'
+    readme "README"
+  end
+
+  def self.next_migration_number(dirname)
+    ActiveRecord::Generators::Base.next_migration_number(dirname)
+  end
+end

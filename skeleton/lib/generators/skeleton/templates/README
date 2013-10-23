@@ -1,0 +1,15 @@
+===============================================================================
+
+There is a setup that you need to do before you can use self.
+
+Step 1.
+
+Run migration.
+
+  rake db:migrate
+
+Step 2.
+
+That's all.
+
+===============================================================================

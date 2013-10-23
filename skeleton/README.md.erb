@@ -1,0 +1,38 @@
+# <%= @options[:namespace] %>
+
+<%= @options[:namespace] %> is a sample gem that provides a rails application.
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+    gem '<%= Rinne.to_snake(@options[:namespace]) %>'
+
+Runs the installation generator with:
+
+    rails generate <%= Rinne.to_snake(@options[:namespace]) %>:install
+
+This will install the migration file into `db/migrate`
+
+Don't forget to run the migration with:
+
+    rake db:migrate
+
+## Routes
+
+The installation script will also automatically add the Gyomu routes into your app, like this:
+
+```ruby
+Rails.application.routes.draw do
+  use_<%= Rinne.to_snake(@options[:namespace]) %>
+  # your routes
+end
+```
+
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request

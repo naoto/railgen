@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+# -*- codinf: utf-8 -*-
+
+module <%= @options[:namespace] %>
+    module Rails
+        class Routes
+            module Helper
+                def use_<%= Rinne.to_snake(@options[:namespace]) %>
+                    <%= @options[:namespace] %>::Rails::Routes.new(self).generate_routes!
+                end
+            end
+
+            def self.install!
+                ActionDispatch::Routing::Mapper.send :include, <%= @options[:namespace] %>::Rails::Routes::Helper
+            end
+
+            attr_accessor :routes
+
+            def initialize(routes)
+                @routes = routes
+            end
+
+            def generate_routes!
+                routes.scope '<%= Rinne.to_snake(@options[:namespace]) %>', :as => '<% Rinne.to_snake(@options[:namespace]) %>' do
+                    # routes.resource aads
+                    # TODO: router config file load
+                end
+            end
+        end
+    end
+end
+
