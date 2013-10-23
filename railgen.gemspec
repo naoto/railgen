@@ -1,5 +1,4 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'railgen/version'
 
@@ -7,9 +6,9 @@ Gem::Specification.new do |spec|
   spec.name          = "railgen"
   spec.version       = Railgen::VERSION
   spec.authors       = ["Naoto SHINGAKI"]
-  spec.email         = ["nao.sora+github@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.email         = ["n.shingaki@gmail.com"]
+  spec.description   = %q{Railgen is generate gem that provides a rails application}
+  spec.summary       = %q{Railgen is generate gem that provides a rails application}
   spec.homepage      = ""
   spec.license       = "MIT"
 
