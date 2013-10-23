@@ -3,6 +3,6 @@ require "<%= Rinne.to_snake(@options[:namespace]) %>/engine"
 
 module <%= @options[:namespace] %>
     module Rails
-      autload :Routes, "<%= @options[:namespace] %>/rails/routes"
+      autoload :Routes, "<%= Rinne.to_snake(@options[:namespace]) %>/rails/routes"
     end
 end
